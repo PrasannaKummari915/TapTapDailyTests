@@ -1,0 +1,19 @@
+def runLengthEncode(s):
+    encoded = []
+    count = 1
+    
+    for i in range(1, len(s)):
+        if s[i] == s[i - 1]:
+            count += 1
+        else:
+            encoded.append(str(count) + s[i - 1])
+            count = 1
+    # add the last group
+    encoded.append(str(count) + s[-1])
+    
+    return "".join(encoded)
+
+
+# Dynamic input (competitive programming style)
+s = input().strip()
+print(runLengthEncode(s))
